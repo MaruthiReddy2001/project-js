@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page Scroll</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #333;
+            padding: 10px;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background: #555;
+        }
+        section {
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: rgb(0, 0, 0);
+        }
+        #section1 { background: #ff5733; }
+        #section2 { background: #33c1ff; }
+        #section3 { background: #75ff33; }
+        #section4 { background: #ff33a1; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#section1">First paragraph</a>
+    <a href="#section2">Second paragraph</a>
+    <a href="#section3">Third paragraph</a>
+    <a href="#section4">Fourth paragraph</a>
+</nav>
+
+<section id="section1"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolore est exercitationem, quidem tenetur eveniet. Iure quia asperiores a, neque adipisci odio, magnam reprehenderit ipsam quisquam, illo accusantium fuga! Doloribus voluptate maiores eaque, dolorum quidem ipsam accusamus? Placeat laudantium natus perspiciatis dolorem ullam animi, deleniti quisquam delectus omnis soluta consequatur!</section>
+<section id="section2"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolore est exercitationem, quidem tenetur eveniet. Iure quia asperiores a, neque adipisci odio, magnam reprehenderit ipsam quisquam, illo accusantium fuga! Doloribus voluptate maiores eaque, dolorum quidem ipsam accusamus? Placeat laudantium natus perspiciatis dolorem ullam animi, deleniti quisquam delectus omnis soluta consequatur!</section>
+<section id="section3"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolore est exercitationem, quidem tenetur eveniet. Iure quia asperiores a, neque adipisci odio, magnam reprehenderit ipsam quisquam, illo accusantium fuga! Doloribus voluptate maiores eaque, dolorum quidem ipsam accusamus? Placeat laudantium natus perspiciatis dolorem ullam animi, deleniti quisquam delectus omnis soluta consequatur!</section>
+<section id="section4"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad dolore est exercitationem, quidem tenetur eveniet. Iure quia asperiores a, neque adipisci odio, magnam reprehenderit ipsam quisquam, illo accusantium fuga! Doloribus voluptate maiores eaque, dolorum quidem ipsam accusamus? Placeat laudantium natus perspiciatis dolorem ullam animi, deleniti quisquam delectus omnis soluta consequatur!</section>
+
+<script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .video-container {
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 640px;
+            width: 100%;
+        }
+        video {
+            width: 100%;
+            height: auto;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .play-btn, .pause-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .progress {
+            flex-grow: 1;
+            margin: 5px 10px;
+            height: 10px;
+            background: #555;
+            cursor: pointer;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="video-container">
+    <video id="video" src="VISHWAMBHARA Official Teaser _ Megastar Chiranjeevi _ Trisha Krishnan _ Vassishta _ MM Keeravaani.mp4" preload="metadata"></video>
+    <div class="controls">
+        <button class="play-btn" onclick="playVideo()"><i class="fa-solid fa-play"></i></button>
+        <button class="pause-btn" onclick="pauseVideo()"><i class="fa-solid fa-pause"></i></button>
+        <div class="progress" onclick="setVideoProgress(event)">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const video = document.getElementById('video');
+    const progressBar = document.getElementById('progress-bar');
+
+    function playVideo() {
+        video.play();
+    }
+
+    function pauseVideo() {
+        video.pause();
+    }
+
+    video.addEventListener('timeupdate', updateProgressBar);
+
+    function updateProgressBar() {
+        const percentage = (video.currentTime / video.duration) * 100;
+        progressBar.style.width = percentage + '%';
+    }
+
+    function setVideoProgress(event) {
+        const totalWidth = event.target.clientWidth;
+        const clickPosition = event.offsetX;
+        const percentage = (clickPosition / totalWidth);
+        video.currentTime = percentage * video.duration;
+    }
+</script>
+
+</body>
+</html>

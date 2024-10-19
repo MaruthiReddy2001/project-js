@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spoke game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="spockrockGame.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>Rock paper scissors lizard spock</h1>
+        </div>
+
+        <div class="player-container" id="player">
+            <h2>You - <span id="playerScore">0</span><span id="playerChoice"> --- Choice</span></h2>
+            <i class="far fa-regular fa-hand-back-fist" title="rock" id="playerRock" onclick="select('rock')"></i>
+            <i class="far fa-regular fa-hand" title="paper" id="playerPaper" onclick="select('paper')"></i>
+            <i class="far fa-regular fa-hand-scissors" title="scissors" id="playerScissors" onclick="select('scissors')"></i>
+            <i class="far fa-regular fa-hand-lizard" title="lizard" id="playerLizard" onclick="select('lizard')"></i>
+            <i class="far fa-regular fa-hand-spock" title="spock" id="playerSpock" onclick="select('spock')"></i>
+        </div>
+
+        <div class="player-container" id="computer">
+            <h2>You - <span id="computerScore">0</span><span id="computerChoice"> --- Choice</span></h2>
+            <i class="far fa-regular fa-hand-back-fist" title="rock" id="computerRock"></i>
+            <i class="far fa-regular fa-hand" title="paper" id="computerPaper"></i>
+            <i class="far fa-regular fa-hand-scissors" title="scissors" id="computerScissors"></i>
+            <i class="far fa-regular fa-hand-lizard" title="lizard" id="computerLizard"></i>
+            <i class="far fa-regular fa-hand-spock" title="spock" id="computerSpock"></i>
+        </div>
+
+        <i class="fas fa-sync-alt reset-icon"></i>
+
+        <div class="result-container">
+            <h3 class="result-text" id="resultText">YOU WON!</h3>
+        </div>
+
+
+            
+    </div>
+
+    <script src="spockrockGame.js"></script>
+</body>
+</html>

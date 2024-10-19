@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    width: calc(20% - 20px);
+}
+
+.product h2 {
+    margin: 10px 0;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.total {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+</style>
+<body>
+    <header>
+        <h1>Grocery Hub</h1>
+        <div class="cart">
+            <span id="cart-count">0</span> items in cart
+        </div>
+    </header>
+    <main>
+        <div class="product-list">
+            <div class="product">
+                <h2>Apples</h2>
+                <p>$1.00 each</p>
+                <button onclick="addToCart('Apples', 1)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Bananas</h2>
+                <p>$0.50 each</p>
+                <button onclick="addToCart('Bananas', 0.5)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Carrots</h2>
+                <p>$0.30 each</p>
+                <button onclick="addToCart('Carrots', 0.3)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Tomatoes</h2>
+                <p>$0.80 each</p>
+                <button onclick="addToCart('Tomatoes', 0.8)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Bread</h2>
+                <p>$2.50 each</p>
+                <button onclick="addToCart('Bread', 2.5)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="total">
+            <h2>Total: $<span id="total-amount">0.00</span></h2>
+        </div>
+    </main>
+    <script>
+        let cartCount = 0;
+let totalAmount = 0.00;
+
+function addToCart(item, price) {
+    cartCount++;
+    totalAmount += price;
+    document.getElementById('cart-count').innerText = cartCount;
+    document.getElementById('total-amount').innerText = totalAmount.toFixed(2);
+}
+
+    </script>
+</body>
+</html>
